@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name        Better Azair.eu
+// @name        Filter flights Azair.eu
 // @namespace   https://github.com/brincowale
 // @include     http://www.azair.eu/azfin.php*
 // @include     http://www.azair.cz/azfin.php*
