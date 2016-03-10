@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Nuevos posts Forocoches
 // @namespace   http://github.com/brincowale
-// @description Comprueba nuevos posts cada 60 segundos, reemplazo de Shurscript.
+// @description Comprueba nuevos posts cada 120 segundos, reemplazo de Shurscript.
 // @include     https://www.forocoches.com/foro/showthread.php?*
 // @include     http://www.forocoches.com/foro/showthread.php?*
 // @require     https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js
@@ -48,7 +48,7 @@ $(document).ready(function() {
 });
 
 /**
-Search for new posts every 60 seconds
+Search for new posts every 120 seconds
 */
 function search_new_posts(document){
   $.get(document.URL, function(data) {
@@ -57,7 +57,7 @@ function search_new_posts(document){
       // check if exists new posts (more posts when refresh than before)
       if ((posts_number_now - posts_number_old) > 0){
         var new_posts_number = posts_number_now - posts_number_old;
-        setTimeout(function() {search_new_posts(document)}, 60000);
+        setTimeout(function() {search_new_posts(document)}, 120000);
         alert_user(document, new_posts_number, data, false);
       }
       // check if exists new pages (only checked when all posts are showed in actual page)
@@ -66,7 +66,7 @@ function search_new_posts(document){
       }
       // continue searching for new posts when no news pages found
       else {
-        setTimeout(function() {search_new_posts(document)}, 60000);
+        setTimeout(function() {search_new_posts(document)}, 120000);
       }
   });
 }
