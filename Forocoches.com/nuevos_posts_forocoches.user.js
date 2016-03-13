@@ -12,7 +12,7 @@
 if (window.top != window.self)  //-- Don't run on frames or iframes
     return;
 
-var page = 1; // in the first page the url doesn't contains the page param
+var page = 1;
 var base_url = null;
 var thread = null;
 var posts_number_old = 0;
@@ -104,7 +104,7 @@ function alert_user(document, new_posts_number, data, new_page){
 
 
 /**
-Delete he green bar and show the new hidden posts
+Delete the green bar and show the new hidden posts
 */
 function show_new_posts(){
   $(".postInvisible").show();
