@@ -20,25 +20,13 @@ var button_new_posts = null;
 var posts_number_now = 0;
 
 /**
-Script starts, obtains vars (page, tread and base_url) from current url
+Script starts, obtains vars (page, tread and base_url)
 Get the number of posts at this moment (posts_number_old)
 */
 $(document).ready(function() {
-    var full_url = document.URL.split("?");
-    base_url = full_url[0]; // http://www.forocoches.com/foro/showthread.php
-    var params = full_url[1].split("&");
-    // extract values from parameters
-    for (var i = 0; i < params.length; i++) {
-      param_id = params[i].split("=")[0];
-      // parameter page (if not exists by default 1)
-      if (param_id == "page"){
-        page = parseInt(params[i].split("=")[1]);
-      }
-      // parameter id of thread
-      else if (param_id == "t"){
-        thread = parseInt(params[i].split("=")[1]);
-      }
-    }
+    base_url = document.URL.split("?")[0];
+    page = $('div.pagenav td.alt2 > span.mfont > strong').eq(0).text();
+    thread = $('a[href^="subscription.php?do=addsubscription&t="]').attr("href").split("&t=")[1];
     // count number of posts in the current page
     posts_number_old = parseInt($('table[id^="post"]', $(document)).length);
     // execute the script only if you are in the last page
