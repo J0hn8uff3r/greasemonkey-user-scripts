@@ -25,7 +25,7 @@ Get the number of posts at this moment (posts_number_old)
 */
 $(document).ready(function() {
     base_url = document.URL.split("?")[0];
-    page = $('div.pagenav td.alt2 > span.mfont > strong').eq(0).text();
+    page = parseInt($('div.pagenav td.alt2 > span.mfont > strong').eq(0).text());
     thread = $('a[href^="subscription.php?do=addsubscription&t="]').attr("href").split("&t=")[1];
     // count number of posts in the current page
     posts_number_old = parseInt($('table[id^="post"]', $(document)).length);
